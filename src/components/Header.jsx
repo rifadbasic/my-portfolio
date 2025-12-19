@@ -2,6 +2,8 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { ArrowDownCircle } from "lucide-react";
 import ProfileCard from "./portfolioCard/ProfileCard";
+import TextType from "../utils/TextType";
+import GlareHover from "../utils/GlareHover";
 
 const Header = () => {
   return (
@@ -17,8 +19,18 @@ const Header = () => {
             </span>
           </h1>
 
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Front-End Developer | Web Developer | MERN Stack Developer
+          <p className="mt-4 text-2xl font-bold text-gray-600 dark:text-gray-300">
+            <TextType
+              text={[
+                "Front-End Developer",
+                "Web Developer",
+                "MERN Stack Developer",
+              ]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor={true}
+              cursorCharacter="|"
+            />
           </p>
 
           <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto md:mx-0">
@@ -67,13 +79,20 @@ const Header = () => {
                 </div>
                 <div className="mx-4">
                   {/* --- Resume Button --- */}
-                  <a
-                    href="/Khan-Rifad-Hossain.pdf"
-                    download
-                    className="flex items-center gap-2 px-5 py-2 font-semibold text-white rounded-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-pink-500 transition-all shadow-lg"
-                  >
-                    Resume
-                    <ArrowDownCircle size={20} />
+                  <a href="/khan_rifad_hossain.pdf" download>
+                    <GlareHover
+                      glareColor="#ffffff"
+                      glareOpacity={0.3}
+                      glareAngle={-30}
+                      glareSize={300}
+                      transitionDuration={800}
+                      playOnce={false}
+                    >
+                      <h2 className="flex items-center justify-center gap-2  font-semibold text-white ">
+                        Resume
+                        <ArrowDownCircle size={20} />
+                      </h2>
+                    </GlareHover>
                   </a>
                 </div>
               </div>

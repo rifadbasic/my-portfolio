@@ -26,7 +26,7 @@ const easeInOutCubic = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 
 
 const ProfileCardComponent = ({
   avatarUrl = 'https://i.ibb.co.com/mFJJPKxG/mj.png',
-  iconUrl = '<Placeholder for icon URL>',
+  iconUrl = '/code.svg',
   grainUrl = '<Placeholder for grain URL>',
   behindGradient,
   innerGradient,
