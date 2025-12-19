@@ -57,7 +57,7 @@ const Header = () => {
 
                   {/* === Facebook === */}
                   <a
-                    href="https://facebook.com/"
+                    href="https://www.facebook.com/khan.rifad.hossain"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-full border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-300 transition-all duration-500 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-500 hover:via-cyan-400 hover:to-pink-500  hover:bg-clip-text hover:shadow-[0_0_12px_rgba(236,72,153,0.6)] animate-gradient-x"
@@ -68,7 +68,7 @@ const Header = () => {
                 <div className="mx-4">
                   {/* --- Resume Button --- */}
                   <a
-                    href="/public/Khan-Rifad-Hossain.pdf"
+                    href="/Khan-Rifad-Hossain.pdf"
                     download
                     className="flex items-center gap-2 px-5 py-2 font-semibold text-white rounded-full bg-gradient-to-r from-indigo-500 via-cyan-400 to-pink-500 transition-all shadow-lg"
                   >

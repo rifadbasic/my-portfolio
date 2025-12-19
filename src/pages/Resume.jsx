@@ -1,24 +1,17 @@
 import React from "react";
-import { Home } from "lucide-react";
-import { useNavigate } from "react-router";
+// import { Home } from "lucide-react";
+// import { useNavigate } from "react-router";
 import profileImg from "../assets/profileImg.jpg"; // 🖼️ Place your image here
+import FloatingMenu from "../components/FloatingMenu";
 
 const Resume = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-black py-20 px-6 md:px-10">
       
       {/* ===== Home Button ===== */}
-      <button
-        onClick={() => navigate("/")}
-        className="fixed top-6 left-6 z-50 p-3 rounded-full border border-gray-300/40 dark:border-gray-700/40 backdrop-blur-lg bg-white/30 dark:bg-black/40 shadow-md hover:shadow-lg transition-all duration-500 hover:scale-105 hover:border-transparent hover:bg-gradient-to-r hover:from-indigo-500 hover:via-cyan-400 hover:to-pink-500 group"
-      >
-        <Home
-          size={22}
-          className="text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors"
-        />
-      </button>
+      <FloatingMenu />
 
       {/* ===== Resume Card ===== */}
       <div className="max-w-5xl mx-auto border border-gray-300/30 dark:border-gray-700/50 rounded-3xl p-8 md:p-12 backdrop-blur-lg bg-white/40 dark:bg-black/30 shadow-2xl transition-all duration-500 mt-20">

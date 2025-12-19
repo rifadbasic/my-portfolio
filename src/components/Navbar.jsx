@@ -1,44 +1,44 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router";
 import { Sun, Moon, Send, Menu, X, FolderGit2, User, FileText, Mail, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-  const getInitialTheme = () => {
-    try {
-      const stored = localStorage.getItem("theme");
-      if (stored === "light" || stored === "dark") return stored;
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        return "dark";
-      }
-    } catch {
-      // ignore
-    }
-    return "light";
-  };
+  // const getInitialTheme = () => {
+  //   try {
+  //     const stored = localStorage.getItem("theme");
+  //     if (stored === "light" || stored === "dark") return stored;
+  //     if (
+  //       window.matchMedia &&
+  //       window.matchMedia("(prefers-color-scheme: dark)").matches
+  //     ) {
+  //       return "dark";
+  //     }
+  //   } catch {
+  //     // ignore
+  //   }
+  //   return "light";
+  // };
 
-  const [theme, setTheme] = useState(getInitialTheme);
+  // const [theme, setTheme] = useState(getInitialTheme);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      root.classList.remove("light");
-    } else {
-      root.classList.remove("dark");
-      root.classList.add("light");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   const root = document.documentElement;
+  //   if (theme === "dark") {
+  //     root.classList.add("dark");
+  //     root.classList.remove("light");
+  //   } else {
+  //     root.classList.remove("dark");
+  //     root.classList.add("light");
+  //   }
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
 
-  const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  }, []);
+  // const toggleTheme = useCallback(() => {
+  //   setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  // }, []);
 
   // Navigation links with icons
   const navLinks = [
@@ -115,7 +115,7 @@ const Navbar = () => {
             Hire Me <Send size={16} />
           </button>
 
-          <button
+          {/* <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-200 flex items-center justify-center"
             aria-label="Toggle theme"
@@ -125,7 +125,7 @@ const Navbar = () => {
             ) : (
               <Moon size={20} className="text-gray-200" />
             )}
-          </button>
+          </button> */}
         </div>
 
         {/* Mobile Menu Button */}

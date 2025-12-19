@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header.jsx';
 import About from '../components/About.jsx';
-import Project from '../components/projects/Project.jsx';
+import Project from '../pages/Project.jsx';
 import Skill from '../components/Skill.jsx';
 
 
