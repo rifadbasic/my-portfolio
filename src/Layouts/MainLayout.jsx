@@ -8,7 +8,7 @@ import FloatingMenu from "../components/FloatingMenu.jsx";
 const MainLayout = () => {
   return (
     <div className="w-full min-h-screen relative overflow-hidden">
-      {/* <DarkVeil /> */}
+      <DarkVeil />
       {/* <Navbar /> */}
       <Outlet />
       <Footer />
