@@ -48,7 +48,7 @@ export default function FloatingMenu() {
         }}
         whileDrag={{ scale: 1.05 }} // ✅ ADDED
         style={{ touchAction: "none" }} // ✅ ADDED
-        className="fixed bottom-100 right-20 z-[9999] pointer-events-auto cursor-grab active:cursor-grabbing"
+        className="fixed bottom-100 right-20 z-[99999] pointer-events-auto cursor-grab active:cursor-grabbing"
       >
         <AnimatePresence>
           {open &&
