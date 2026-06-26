@@ -1,105 +1,139 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const projects = [
   {
-    name: "Library Management Website",
-    description:
-      "A complete web-based system to manage library books, subscriptions, and borrowing features.",
+    name: "Hisab",
+    description: "Ledger management system with authentication, expense tracking, and data visualization.",
     tech: [
-      "React.js",
-      "Node.js",
-      "Express.js",
+      "React",
+      "Node",
+      "Express",
       "MongoDB",
+      "Stripe",
+      "Firebase",
+      "JWT",
       "Tailwind CSS",
-      "Firebase Authentication",
+      "React Router",
     ],
-    link: "https://library-client-322cb.web.app/",
-    image:
-      "https://library-client-322cb.web.app/library_homepage_screenshot.png", // Replace with your actual screenshot
+    link: "https://hisab-app-zeta.vercel.app/",
+    image: "https://i.ibb.co.com/YFnqvjFJ/Screenshot-2026-06-26-190144.png",
   },
   {
-    name: "News Management Website",
-    description:
-      "A content management platform allowing admins to add, edit, and manage news articles with image uploads and subscription features.",
+    name: "Gallery",
+    description: "Image gallery platform with user authentication and image upload functionality.",
     tech: [
-      "React.js",
-      "Node.js",
-      "Express.js",
+      "React",
+      "Node",
+      "Express",
       "MongoDB",
-      "Stripe Payment",
-      "Firebase Authentication",
+      "Stripe",
+      "Firebase",
+      "JWT",
+      "Tailwind CSS",
+      "React Router",
+    ],
+    link: "https://gallery-client-app.vercel.app/",
+    image: "https://i.ibb.co.com/93ygckjh/Screenshot-2026-06-26-185749.png",
+  },
+  {
+    name: "News Nation",
+    description:
+      "News Portal with premium subscription, payment gateway and admin dashboard.",
+    tech: [
+      "React",
+      "Node",
+      "Express",
+      "MongoDB",
+      "Stripe",
+      "Firebase",
+      "JWT",
+      "Tailwind CSS",
+      "React Router",
     ],
     link: "https://newspaper-client-be1ba.web.app/",
-    image:
-      "https://newspaper-client-be1ba.web.app/news_homepage_screenshot.png", // Replace with your actual screenshot
+    image: "https://i.ibb.co.com/84ctfphS/Screenshot-2026-06-26-172724.png",
+  },
+  {
+    name: "Beauty & Care",
+    description:
+      "Complete beauty and wellness platform with user profiles, and admin management.",
+    tech: [
+      "React",
+      "Tailwind CSS",
+      "React Router",
+      "Node",
+      "Express",
+      "MongoDB",
+      "Firebase",
+    ],
+    link: "https://beauty-care-client.vercel.app/",
+    image: "https://i.ibb.co.com/qLJHjLcX/Screenshot-2026-06-26-192441.png",
   },
 ];
 
-const Project = () => {
+export default function Project() {
   return (
-    <section id="projects" className="w-full py-20 px-6 md:px-10">
-      <div className="max-w-6xl mx-auto">
-        {/* ===== Section Title ===== */}
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-gray-800 dark:text-white mb-12">
-          My <span className="text-blue-500 dark:text-blue-400">Projects</span>
+    <section className="py-24 px-6 bg-gradient-to-b from-white to-slate-100 dark:from-slate-900 dark:to-slate-950">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-5xl text-white font-bold text-center mb-16" data-aos="fade-up" >
+          My <span className="text-blue-500">Projects</span>
         </h2>
 
-        {/* ===== Projects Grid ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-10" data-aos="fade-right" data-aos-delay="100">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative group rounded-2xl overflow-hidden shadow-lg border border-gray-200/40 dark:border-gray-700/40 transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
-              style={{
-                backgroundImage: `url(${project.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="group relative h-[430px] rounded-3xl overflow-hidden shadow-xl"
             >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-all"></div>
+              <img
+                src={project.image}
+                className="absolute w-full h-full object-cover group-hover:scale-110 duration-700"
+              />
 
-              {/* Content */}
-              <div className="relative z-10 p-6 md:p-8 text-white flex flex-col justify-between h-full backdrop-blur-sm">
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 text-blue-400">
-                    {project.name}
-                  </h3>
-                  <p className="text-sm text-gray-200 mb-4">
-                    {project.description}
-                  </p>
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 duration-500"></div>
 
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="text-xs font-medium px-3 py-1 bg-blue-500/20 border border-blue-400/40 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              <div className="relative h-full flex flex-col justify-end p-8">
+                <h2 className="text-3xl font-bold text-blue-400">
+                  {project.name}
+                </h2>
+
+                <p className="text-gray-200 mt-3">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.tech.map((item, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400 text-sm text-white"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
 
-                {/* View Project Button */}
-                <div className="mt-6">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-5 py-2 bg-gradient-to-r from-blue-500 via-cyan-400 to-pink-500 rounded-full text-white font-semibold shadow-md hover:opacity-90 transition"
-                  >
-                    View Project
-                  </a>
-                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  className="mt-6 w-fit px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 font-semibold"
+                >
+                  Live Demo
+                </a>
               </div>
             </div>
           ))}
         </div>
+
+        <div className="text-center mt-16" data-aos="fade-up" data-aos-delay="200">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 text-white font-bold hover:scale-105 duration-300 shadow-xl"
+          >
+            See More Projects
+            <FaArrowRight />
+          </Link>
+        </div>
       </div>
     </section>
   );
-};
-
-export default Project;
+}
