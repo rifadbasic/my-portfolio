@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useRef } from "react"; // ✅ ADDED useRef
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router"; // <--- fixed import
-import { Home, User, Settings, LogOut, House, FolderCode, Send, Rss, FileUser } from "lucide-react";
+import { useNavigate } from "react-router";
+import {
+  Home,
+  User,
+  Settings,
+  LogOut,
+  House,
+  FolderCode,
+  Send,
+  Rss,
+  FileUser,
+} from "lucide-react";
 
 export default function FloatingMenu() {
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate(); // now works
+  const navigate = useNavigate();
+  const constraintsRef = useRef(null); // ✅ ADDED
 
   const actions = [
     { icon: <FolderCode size={20} />, route: "/project", x: -70, y: 0 },
@@ -24,57 +35,71 @@ export default function FloatingMenu() {
   };
 
   return (
-    <motion.div
-      drag
-      dragMomentum={false}
-      className="fixed bottom-100 right-20 z-[9999]"
+    // ✅ ADDED wrapper (full screen constraint area)
+    <div
+      ref={constraintsRef}
+      className="fixed inset-0 z-[999999] pointer-events-none"
     >
-      <AnimatePresence>
-        {open &&
-          actions.map((action, i) => (
-            <ActionButton
-              key={i}
-              icon={action.icon}
-              x={action.x}
-              y={action.y}
-              onClick={() => handleActionClick(action.route)}
-            />
-          ))}
-      </AnimatePresence>
+      <motion.div
+        drag
+        dragConstraints={constraintsRef} // ✅ ADDED (keeps inside screen)
+        dragMomentum={true} // ✅ ADDED (smooth momentum)
+        dragElastic={0.2} // ✅ ADDED (soft elastic feel)
+        dragTransition={{
+          // ✅ ADDED (smooth bounce)
+          bounceStiffness: 180,
+          bounceDamping: 20,
+        }}
+        whileDrag={{ scale: 1.05 }} // ✅ ADDED
+        style={{ touchAction: "none" }} // ✅ ADDED
+        className="fixed bottom-10 right-10 z-[999999] pointer-events-auto pointer-events-auto cursor-grab active:cursor-grabbing"
+      >
+        <AnimatePresence>
+          {open &&
+            actions.map((action, i) => (
+              <ActionButton
+                key={i}
+                icon={action.icon}
+                x={action.x}
+                y={action.y}
+                onClick={() => handleActionClick(action.route)}
+              />
+            ))}
+        </AnimatePresence>
 
-      <motion.button
-  onClick={() => setOpen(!open)}
-  animate={{
-    y: [0, -10, 0], // moves up 10px then back down
-    boxShadow: [
-      "0 0 8px rgba(255, 0, 0, 0.8)",
-      "0 0 14px rgba(0, 255, 0, 0.8)",
-      "0 0 18px rgba(0, 0, 255, 0.8)",
-      "0 0 14px rgba(255, 0, 255, 0.8)",
-      "0 0 8px rgba(255, 0, 0, 0.8)",
-    ],
-  }}
-  transition={{
-    y: {
-      duration: 2,       // speed of floating
-      repeat: Infinity,  // repeat forever
-      repeatType: "loop",
-      ease: "easeInOut",
-    },
-    boxShadow: {
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  }}
-  className="w-14 h-14 rounded-full bg-gray-600 text-white 
+        <motion.button
+          onClick={() => setOpen(!open)}
+          animate={{
+            y: [0, -10, 0],
+            boxShadow: [
+              "0 0 8px rgba(255, 0, 0, 0.8)",
+              "0 0 14px rgba(0, 255, 0, 0.8)",
+              "0 0 18px rgba(0, 0, 255, 0.8)",
+              "0 0 14px rgba(255, 0, 255, 0.8)",
+              "0 0 8px rgba(255, 0, 0, 0.8)",
+            ],
+          }}
+          transition={{
+            y: {
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "easeInOut",
+            },
+            boxShadow: {
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+          }}
+          className="w-14 h-14 rounded-full bg-gray-600 text-white 
              flex items-center justify-center backdrop-blur-md 
              shadow-2xl active:scale-95 transition"
->
-  <Home size={24} />
-</motion.button>
-
-    </motion.div>
+        >
+          <Home size={24} />
+        </motion.button>
+      </motion.div>
+    </div>
   );
 }
 

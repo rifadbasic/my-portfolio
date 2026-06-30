@@ -9,13 +9,10 @@ const Resume = () => {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-black py-20 px-6 md:px-10">
-      
       {/* ===== Home Button ===== */}
-      <FloatingMenu />
 
       {/* ===== Resume Card ===== */}
       <div className="max-w-5xl mx-auto border border-gray-300/30 dark:border-gray-700/50 rounded-3xl p-8 md:p-12 backdrop-blur-lg bg-white/40 dark:bg-black/30 shadow-2xl transition-all duration-500 mt-20">
-        
         {/* ===== Header ===== */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <img
@@ -148,7 +145,8 @@ const Resume = () => {
               🧠 <b>Library Management Website</b> — Manage library system with
               book borrow, add, and subscription features. <br />
               <span className="text-sm text-gray-500">
-                Tech: React, Tailwind, Node.js, Express.js, MongoDB, Firebase{" "}
+                Tech: React, Tailwind, Node.js, Express.js, MongoDB,
+                Firebase{" "}
               </span>
               <a
                 href="https://library-client-322cb.web.app/"
@@ -223,6 +221,7 @@ const Resume = () => {
           </ul>
         </div>
       </div>
+      <FloatingMenu />
     </section>
   );
 };

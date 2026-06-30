@@ -1,0 +1,32 @@
+@keyframes rotateClock {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.rotate-clock{
+  animation: rotateClock linear infinite;
+}
+
+.rotate-reverse{
+  animation: rotateReverse linear infinite;
+}
+
+/* .hud-glow{
+    filter:
+    drop-shadow(0 0 4px #B331F1)
+    drop-shadow(0 0 10px #792CA2)
+    drop-shadow(0 0 18px #F13E93);
+} */
