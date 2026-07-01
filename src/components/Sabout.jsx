@@ -8,6 +8,7 @@ import {
   FaCode,
 } from "react-icons/fa";
 import CoderProfileCard from "./portfolioCard/CoderProfileCard";
+import CertificationSection from "../components/certificate/CertificationSection";
 
 const Sabout = () => {
   const highlights = [
@@ -17,24 +18,6 @@ const Sabout = () => {
     "Firebase Authentication",
     "MongoDB Database",
     "Clean & Maintainable Code",
-  ];
-
-  const certifications = [
-    {
-      title: "Complete Web Development",
-      provider: "Programming Hero",
-      year: "2025",
-    },
-    {
-      title: "Responsive Web Design",
-      provider: "freeCodeCamp",
-      year: "2025",
-    },
-    {
-      title: "JavaScript Algorithms",
-      provider: "freeCodeCamp",
-      year: "2025",
-    },
   ];
 
   return (
@@ -307,77 +290,9 @@ const Sabout = () => {
 
         {/* ================= CERTIFICATIONS ================= */}
 
-        <div className="mt-24">
-          <div className="text-center mb-14" data-aos="fade-up">
-            <span className="uppercase tracking-[5px] text-cyan-400 font-semibold">
-              Achievements
-            </span>
+        <CertificationSection />
 
-            <h2 className="text-4xl md:text-5xl font-black mt-3">
-              My{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Certifications
-              </span>
-            </h2>
-
-            <p className="max-w-2xl mx-auto mt-5 text-gray-600 dark:text-gray-300">
-              Certifications that reflect my dedication to continuous learning,
-              modern web development and professional growth.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {certifications.map((item, index) => (
-              <div
-                key={index}
-                data-aos="flip-left"
-                data-aos-delay={index * 150}
-                className="
-                  relative
-                  overflow-hidden
-                  group
-                  rounded-3xl
-                  border
-                  border-cyan-500/20
-                  bg-white/60
-                  dark:bg-white/5
-                  backdrop-blur-xl
-                  p-8
-                  hover:-translate-y-2
-                  hover:border-cyan-400
-                  hover:shadow-[0_0_40px_rgba(6,182,212,.25)]
-                  transition-all
-                  duration-500
-                "
-              >
-                <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-cyan-500/10 blur-3xl"></div>
-
-                <div className="relative">
-                  <div className="h-16 w-16 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
-                    <FaCertificate className="text-3xl text-cyan-400 group-hover:scale-110 duration-300" />
-                  </div>
-
-                  <h3 className="text-2xl font-bold mt-6">{item.title}</h3>
-
-                  <p className="mt-3 text-cyan-400 font-medium">
-                    {item.provider}
-                  </p>
-
-                  <div className="mt-8 flex justify-between items-center">
-                    <span className="px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-sm">
-                      {item.year}
-                    </span>
-
-                    <span className="text-sm text-gray-500">Verified</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
         {/* ================= CTA ================= */}
-
-        
       </div>
     </section>
   );
